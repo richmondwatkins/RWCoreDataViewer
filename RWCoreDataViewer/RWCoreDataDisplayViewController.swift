@@ -36,7 +36,10 @@ class CDDCoreDataDisplayViewController: UIViewController {
             
             self.tableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0),animated: false, scrollPosition: .None)
 
-            updateCollectionViewWithEntity(entities.first!)
+            if let entity = entities.first {
+             
+                 updateCollectionViewWithEntity(entities.first!)
+            }
         }
         
         let flowlayout: UICollectionViewFlowLayout = self.objectCollectionView.collectionViewLayout as! UICollectionViewFlowLayout

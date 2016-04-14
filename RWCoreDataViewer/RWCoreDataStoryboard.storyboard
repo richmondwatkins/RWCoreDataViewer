@@ -33,7 +33,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RWObjectCollectionViewCell" id="V84-C8-Xnf" customClass="CDDObjectCollectionViewCell" customModule="RWCoreDataViewer" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RWObjectCollectionViewCell" id="V84-C8-Xnf" customClass="RWObjectCollectionViewCell" customModule="RWCoreDataViewer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="2.5" width="157" height="61"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -111,7 +111,7 @@
                                     <constraint firstAttribute="width" constant="127" id="9wh-yb-B0J"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RWEntityTableViewCell" id="Tee-B0-K4d" customClass="CDDEntityTableViewCell" customModule="RWCoreDataViewer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RWEntityTableViewCell" id="Tee-B0-K4d" customClass="RWEntityTableViewCell" customModule="RWCoreDataViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="127" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tee-B0-K4d" id="lqL-YV-Fwg">
