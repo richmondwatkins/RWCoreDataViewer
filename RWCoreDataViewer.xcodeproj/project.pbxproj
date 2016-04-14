@@ -10,6 +10,17 @@
 		5D7DA5D11CC05DB20050E4CB /* RWCoreDataViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7DA5D01CC05DB20050E4CB /* RWCoreDataViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7DA5D81CC05DB30050E4CB /* RWCoreDataViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7DA5CD1CC05DB20050E4CB /* RWCoreDataViewer.framework */; };
 		5D7DA5DD1CC05DB30050E4CB /* RWCoreDataViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5DC1CC05DB30050E4CB /* RWCoreDataViewerTests.swift */; };
+		5D7DA5F31CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */; };
+		5D7DA5F41CC05DD30050E4CB /* CDDCoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */; };
+		5D7DA5F51CC05DD30050E4CB /* RWCoreDataViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */; };
+		5D7DA5F61CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */; };
+		5D7DA5F81CC05DD30050E4CB /* RWEntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */; };
+		5D7DA5F91CC05DD30050E4CB /* RWObjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5ED1CC05DD30050E4CB /* RWObjectCollectionViewCell.swift */; };
+		5D7DA5FA1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EE1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift */; };
+		5D7DA5FB1CC05DD30050E4CB /* RWProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EF1CC05DD30050E4CB /* RWProperty.swift */; };
+		5D7DA5FC1CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5F01CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift */; };
+		5D7DA5FD1CC05DD30050E4CB /* RWStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5F11CC05DD30050E4CB /* RWStringExtension.swift */; };
+		5D7DA5FE1CC05DD30050E4CB /* RWTableEntitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5F21CC05DD30050E4CB /* RWTableEntitySource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +40,17 @@
 		5D7DA5D71CC05DB30050E4CB /* RWCoreDataViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RWCoreDataViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7DA5DC1CC05DB30050E4CB /* RWCoreDataViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCoreDataViewerTests.swift; sourceTree = "<group>"; };
 		5D7DA5DE1CC05DB30050E4CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWCoreDataDisplayViewController.swift; sourceTree = "<group>"; };
+		5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDCoreDataEntity.swift; sourceTree = "<group>"; };
+		5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWCoreDataViewer.swift; sourceTree = "<group>"; };
+		5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RWCoreDataStoryboard.storyboard; sourceTree = "<group>"; };
+		5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWEntityTableViewCell.swift; sourceTree = "<group>"; };
+		5D7DA5ED1CC05DD30050E4CB /* RWObjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWObjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D7DA5EE1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWObjectListingCollectionSource.swift; sourceTree = "<group>"; };
+		5D7DA5EF1CC05DD30050E4CB /* RWProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWProperty.swift; sourceTree = "<group>"; };
+		5D7DA5F01CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWPropertyCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D7DA5F11CC05DD30050E4CB /* RWStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWStringExtension.swift; sourceTree = "<group>"; };
+		5D7DA5F21CC05DD30050E4CB /* RWTableEntitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWTableEntitySource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +94,17 @@
 			isa = PBXGroup;
 			children = (
 				5D7DA5D01CC05DB20050E4CB /* RWCoreDataViewer.h */,
+				5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */,
+				5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */,
+				5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */,
+				5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */,
+				5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */,
+				5D7DA5ED1CC05DD30050E4CB /* RWObjectCollectionViewCell.swift */,
+				5D7DA5EE1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift */,
+				5D7DA5EF1CC05DD30050E4CB /* RWProperty.swift */,
+				5D7DA5F01CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift */,
+				5D7DA5F11CC05DD30050E4CB /* RWStringExtension.swift */,
+				5D7DA5F21CC05DD30050E4CB /* RWTableEntitySource.swift */,
 				5D7DA5D21CC05DB20050E4CB /* Info.plist */,
 			);
 			path = RWCoreDataViewer;
@@ -177,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7DA5F61CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +228,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7DA5F51CC05DD30050E4CB /* RWCoreDataViewer.swift in Sources */,
+				5D7DA5F31CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift in Sources */,
+				5D7DA5FE1CC05DD30050E4CB /* RWTableEntitySource.swift in Sources */,
+				5D7DA5FA1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift in Sources */,
+				5D7DA5F91CC05DD30050E4CB /* RWObjectCollectionViewCell.swift in Sources */,
+				5D7DA5FB1CC05DD30050E4CB /* RWProperty.swift in Sources */,
+				5D7DA5FC1CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift in Sources */,
+				5D7DA5FD1CC05DD30050E4CB /* RWStringExtension.swift in Sources */,
+				5D7DA5F81CC05DD30050E4CB /* RWEntityTableViewCell.swift in Sources */,
+				5D7DA5F41CC05DD30050E4CB /* CDDCoreDataEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +352,7 @@
 		5D7DA5E21CC05DB30050E4CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +363,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RW.RWCoreDataViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5D7DA5E31CC05DB30050E4CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
