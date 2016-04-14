@@ -38,7 +38,7 @@ public class RWCoreDataViewer: NSObject {
 
     public static func initialize(moc: NSManagedObjectContext) {
         
-        var amaEntities: [CDDCoreDataEntity] = []
+        var amaEntities: [RWCoreDataEntity] = []
         
         for (name, description) in moc.persistentStoreCoordinator!.managedObjectModel.entitiesByName {
             
@@ -46,7 +46,7 @@ public class RWCoreDataViewer: NSObject {
                 
                 if let protoClass = classer.init(entity: description, insertIntoManagedObjectContext: moc) as? RWCoreDataInspector {
       
-                    amaEntities.append(CDDCoreDataEntity(entityName: name, properties: protoClass.propertyNames(classer), moc: moc))
+                    amaEntities.append(RWCoreDataEntity(entityName: name, properties: protoClass.propertyNames(classer), moc: moc))
                 }
             }
         }
@@ -54,10 +54,10 @@ public class RWCoreDataViewer: NSObject {
         showDebugView(amaEntities)
     }
     
-    private static func showDebugView(amaEntities: [CDDCoreDataEntity]) {
+    private static func showDebugView(amaEntities: [RWCoreDataEntity]) {
      
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-            let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "CDDCoreDataStoryboard", bundle: NSBundle(forClass: RWCoreDataViewer.self)).instantiateViewControllerWithIdentifier(String(CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
+            let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: NSBundle(forClass: RWCoreDataViewer.self)).instantiateViewControllerWithIdentifier(String(CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
             
             displayVC.setEntities(amaEntities)
             

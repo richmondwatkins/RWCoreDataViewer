@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "RWCoreDataViewer"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.authors      = "Richmond Watkins"
   s.summary      = "Simple, in app, core data viewer"
   s.homepage      = "www.richmondwatkins.com"

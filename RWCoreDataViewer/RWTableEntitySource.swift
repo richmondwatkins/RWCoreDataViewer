@@ -9,12 +9,12 @@
 import UIKit
 
 protocol RWTableEntitySourceDelegate {
-    func didSelectEntitiy(entity: CDDCoreDataEntity, atIndexPath indexPath: NSIndexPath)
+    func didSelectEntitiy(entity: RWCoreDataEntity, atIndexPath indexPath: NSIndexPath)
 }
 
 class RWTableEntitySource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    var entities: [CDDCoreDataEntity] = []
+    var entities: [RWCoreDataEntity] = []
     var delegate: RWTableEntitySourceDelegate?
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

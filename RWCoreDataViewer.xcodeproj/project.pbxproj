@@ -11,7 +11,7 @@
 		5D7DA5D81CC05DB30050E4CB /* RWCoreDataViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7DA5CD1CC05DB20050E4CB /* RWCoreDataViewer.framework */; };
 		5D7DA5DD1CC05DB30050E4CB /* RWCoreDataViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5DC1CC05DB30050E4CB /* RWCoreDataViewerTests.swift */; };
 		5D7DA5F31CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */; };
-		5D7DA5F41CC05DD30050E4CB /* CDDCoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */; };
+		5D7DA5F41CC05DD30050E4CB /* RWCoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E81CC05DD30050E4CB /* RWCoreDataEntity.swift */; };
 		5D7DA5F51CC05DD30050E4CB /* RWCoreDataViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */; };
 		5D7DA5F61CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */; };
 		5D7DA5F81CC05DD30050E4CB /* RWEntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */; };
@@ -41,7 +41,7 @@
 		5D7DA5DC1CC05DB30050E4CB /* RWCoreDataViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCoreDataViewerTests.swift; sourceTree = "<group>"; };
 		5D7DA5DE1CC05DB30050E4CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWCoreDataDisplayViewController.swift; sourceTree = "<group>"; };
-		5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDDCoreDataEntity.swift; sourceTree = "<group>"; };
+		5D7DA5E81CC05DD30050E4CB /* RWCoreDataEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWCoreDataEntity.swift; sourceTree = "<group>"; };
 		5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWCoreDataViewer.swift; sourceTree = "<group>"; };
 		5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RWCoreDataStoryboard.storyboard; sourceTree = "<group>"; };
 		5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWEntityTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			children = (
 				5D7DA5D01CC05DB20050E4CB /* RWCoreDataViewer.h */,
 				5D7DA5E71CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift */,
-				5D7DA5E81CC05DD30050E4CB /* CDDCoreDataEntity.swift */,
+				5D7DA5E81CC05DD30050E4CB /* RWCoreDataEntity.swift */,
 				5D7DA5E91CC05DD30050E4CB /* RWCoreDataViewer.swift */,
 				5D7DA5EA1CC05DD30050E4CB /* RWCoreDataStoryboard.storyboard */,
 				5D7DA5EC1CC05DD30050E4CB /* RWEntityTableViewCell.swift */,
@@ -237,7 +237,7 @@
 				5D7DA5FC1CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift in Sources */,
 				5D7DA5FD1CC05DD30050E4CB /* RWStringExtension.swift in Sources */,
 				5D7DA5F81CC05DD30050E4CB /* RWEntityTableViewCell.swift in Sources */,
-				5D7DA5F41CC05DD30050E4CB /* CDDCoreDataEntity.swift in Sources */,
+				5D7DA5F41CC05DD30050E4CB /* RWCoreDataEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

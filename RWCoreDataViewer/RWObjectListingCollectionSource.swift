@@ -11,7 +11,7 @@ import CoreData
 
 class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var entity: CDDCoreDataEntity?
+    var entity: RWCoreDataEntity?
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

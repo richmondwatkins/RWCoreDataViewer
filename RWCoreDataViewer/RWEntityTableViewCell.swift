@@ -12,7 +12,7 @@ class RWEntityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var entityNameLabel: UILabel!
 
-    func configure(entity: CDDCoreDataEntity) {
+    func configure(entity: RWCoreDataEntity) {
         
         self.entityNameLabel.text = entity.entityName
     }

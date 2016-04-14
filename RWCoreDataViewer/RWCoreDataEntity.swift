@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CDDCoreDataEntity {
+class RWCoreDataEntity {
 
     let entityName: String
     let properties: [RWProperty]

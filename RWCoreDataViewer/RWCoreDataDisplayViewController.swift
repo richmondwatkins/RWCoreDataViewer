@@ -16,9 +16,9 @@ class CDDCoreDataDisplayViewController: UIViewController {
     @IBOutlet var objectListingSource: RWObjectListingCollectionSource!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var tableSouce: RWTableEntitySource!
-    var entities: [CDDCoreDataEntity]?
+    var entities: [RWCoreDataEntity]?
     
-    func setEntities(entities: [CDDCoreDataEntity]) {
+    func setEntities(entities: [RWCoreDataEntity]) {
         self.entities = entities
     }
     
@@ -44,7 +44,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
         flowlayout.minimumInteritemSpacing = 2
     }
     
-    func updateCollectionViewWithEntity(entity: CDDCoreDataEntity) {
+    func updateCollectionViewWithEntity(entity: RWCoreDataEntity) {
         
         let neededWidth: CGFloat = entity.properties.reduce(0) { (amount, property) -> CGFloat in
             return property.size.width + amount + 16
@@ -68,7 +68,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
 
 extension CDDCoreDataDisplayViewController: RWTableEntitySourceDelegate {
     
-    func didSelectEntitiy(entity: CDDCoreDataEntity, atIndexPath indexPath: NSIndexPath) {
+    func didSelectEntitiy(entity: RWCoreDataEntity, atIndexPath indexPath: NSIndexPath) {
         updateCollectionViewWithEntity(entity)
     }
 }
