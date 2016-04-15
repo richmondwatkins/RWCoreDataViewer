@@ -52,16 +52,17 @@ class CDDCoreDataDisplayViewController: UIViewController {
         let neededWidth: CGFloat = entity.properties.reduce(0) { (amount, property) -> CGFloat in
             return property.size.width + amount + 16
         }
-                
-        self.collectionViewWidthConstraint.constant = neededWidth
-
-        self.scrollView.contentSize = CGSize(width: neededWidth, height: self.objectCollectionView.contentSize.height)
         
-        print("SIZE: \(neededWidth)")
-        
-        UIView.animateWithDuration(0.2, animations: {
-            self.objectCollectionView.layoutIfNeeded()
-        })
+        if neededWidth > self.view.frame.width - self.tableView.frame.width {
+         
+            self.collectionViewWidthConstraint.constant = neededWidth
+            
+            self.scrollView.contentSize = CGSize(width: neededWidth, height: self.objectCollectionView.contentSize.height)
+            
+            UIView.animateWithDuration(0.2, animations: {
+                self.objectCollectionView.layoutIfNeeded()
+            })
+        }
         
         self.objectListingSource.entity = entity
         self.objectCollectionView.reloadData()
