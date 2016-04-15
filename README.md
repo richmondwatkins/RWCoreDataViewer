@@ -21,7 +21,7 @@ class EntityTwo: NSManagedObject, RWCoreDataInspector {
 To display your data just paste in:
 
 ```
-RWCoreDataViewer.initialize(self.managedObjectContext
+RWCoreDataViewer.initialize(self.managedObjectContext)
 ``` 
 
 ### Core Data Utilities
