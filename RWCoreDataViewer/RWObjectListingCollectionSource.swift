@@ -47,8 +47,6 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
             
             if let record: NSManagedObject = self.entity!.fetchResults[indexPath.section] as? NSManagedObject {
                 
-                print(record)
-                
                 cell.configure(record, propertyName: self.entity!.properties[indexPath.row].name)
             }
             

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3660681CC1932F0044D7E5 /* RWManagedObjectContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3660671CC1932F0044D7E5 /* RWManagedObjectContextExtension.swift */; };
 		5D7DA5D11CC05DB20050E4CB /* RWCoreDataViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7DA5D01CC05DB20050E4CB /* RWCoreDataViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D7DA5D81CC05DB30050E4CB /* RWCoreDataViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7DA5CD1CC05DB20050E4CB /* RWCoreDataViewer.framework */; };
 		5D7DA5DD1CC05DB30050E4CB /* RWCoreDataViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DA5DC1CC05DB30050E4CB /* RWCoreDataViewerTests.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B3660671CC1932F0044D7E5 /* RWManagedObjectContextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWManagedObjectContextExtension.swift; sourceTree = "<group>"; };
 		5D7DA5CD1CC05DB20050E4CB /* RWCoreDataViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RWCoreDataViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7DA5D01CC05DB20050E4CB /* RWCoreDataViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWCoreDataViewer.h; sourceTree = "<group>"; };
 		5D7DA5D21CC05DB20050E4CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				5D7DA5F01CC05DD30050E4CB /* RWPropertyCollectionViewCell.swift */,
 				5D7DA5F11CC05DD30050E4CB /* RWStringExtension.swift */,
 				5D7DA5F21CC05DD30050E4CB /* RWTableEntitySource.swift */,
+				2B3660671CC1932F0044D7E5 /* RWManagedObjectContextExtension.swift */,
 				5D7DA5D21CC05DB20050E4CB /* Info.plist */,
 			);
 			path = RWCoreDataViewer;
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7DA5F51CC05DD30050E4CB /* RWCoreDataViewer.swift in Sources */,
+				2B3660681CC1932F0044D7E5 /* RWManagedObjectContextExtension.swift in Sources */,
 				5D7DA5F31CC05DD30050E4CB /* RWCoreDataDisplayViewController.swift in Sources */,
 				5D7DA5FE1CC05DD30050E4CB /* RWTableEntitySource.swift in Sources */,
 				5D7DA5FA1CC05DD30050E4CB /* RWObjectListingCollectionSource.swift in Sources */,
@@ -423,6 +427,7 @@
 				5D7DA5E31CC05DB30050E4CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D7DA5E41CC05DB30050E4CB /* Build configuration list for PBXNativeTarget "RWCoreDataViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +436,7 @@
 				5D7DA5E61CC05DB30050E4CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
