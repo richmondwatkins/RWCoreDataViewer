@@ -19,10 +19,15 @@ class EntityTwo: NSManagedObject, RWCoreDataInspector {
 ```
 
 To display your data just paste in:
-```RWCoreDataViewer.initialize(self.managedObjectContext``` 
+
+```
+RWCoreDataViewer.initialize(self.managedObjectContext
+``` 
 
 ### Core Data Utilities
 
 Serialize your Core Data store to JSON with the ManagedObjectContext Extensions
 
-```self.managedObjectContext.toJSON()```
+```
+self.managedObjectContext.toJSON()
+```
