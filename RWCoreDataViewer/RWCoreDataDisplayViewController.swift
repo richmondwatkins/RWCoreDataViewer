@@ -68,6 +68,11 @@ class CDDCoreDataDisplayViewController: UIViewController {
         self.objectCollectionView.reloadData()
         
     }
+    
+    @IBAction func closeVC(sender: UIButton) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
 extension CDDCoreDataDisplayViewController: RWTableEntitySourceDelegate {

@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qg-6g-xnJ">
-                                <rect key="frame" x="127" y="20" width="473" height="580"/>
+                                <rect key="frame" x="127" y="40" width="473" height="560"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7qK-LD-3F1" userLabel="Object Collection View">
-                                        <rect key="frame" x="8" y="0.0" width="475" height="580"/>
+                                        <rect key="frame" x="8" y="0.0" width="475" height="560"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="475" id="4VH-o0-RXD"/>
@@ -106,7 +106,7 @@
                                 </constraints>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kA8-3a-gTC" userLabel="Entity Name Table View">
-                                <rect key="frame" x="0.0" y="20" width="127" height="580"/>
+                                <rect key="frame" x="0.0" y="40" width="127" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="9wh-yb-B0J"/>
@@ -143,16 +143,31 @@
                                     <outlet property="delegate" destination="d40-Ww-Rn5" id="WIX-CC-JFm"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8Z-Up-idz">
+                                <rect key="frame" x="0.0" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YHZ-IH-Jyo"/>
+                                    <constraint firstAttribute="width" constant="30" id="qD8-i2-Tg5"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeVC:" destination="vRV-Uk-n1d" eventType="touchUpInside" id="sD2-pP-C5r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kA8-3a-gTC" firstAttribute="leading" secondItem="UOC-AJ-3jM" secondAttribute="leading" id="0fP-QP-rkz"/>
-                            <constraint firstItem="kA8-3a-gTC" firstAttribute="top" secondItem="UOC-AJ-3jM" secondAttribute="top" constant="20" id="CUw-Qo-2F0"/>
+                            <constraint firstItem="m8Z-Up-idz" firstAttribute="top" secondItem="UOC-AJ-3jM" secondAttribute="top" constant="10" id="IT9-EO-NEl"/>
+                            <constraint firstItem="m8Z-Up-idz" firstAttribute="leading" secondItem="UOC-AJ-3jM" secondAttribute="leading" id="SLi-bU-lfL"/>
                             <constraint firstAttribute="trailing" secondItem="0qg-6g-xnJ" secondAttribute="trailing" id="SWJ-sH-g6x"/>
                             <constraint firstItem="4yE-J6-2nQ" firstAttribute="top" secondItem="kA8-3a-gTC" secondAttribute="bottom" id="Sbr-LU-qeb"/>
                             <constraint firstItem="4yE-J6-2nQ" firstAttribute="top" secondItem="0qg-6g-xnJ" secondAttribute="bottom" id="TTa-OW-ccq"/>
+                            <constraint firstItem="kA8-3a-gTC" firstAttribute="top" secondItem="m8Z-Up-idz" secondAttribute="bottom" id="V2N-Ex-b0p"/>
                             <constraint firstItem="0qg-6g-xnJ" firstAttribute="leading" secondItem="kA8-3a-gTC" secondAttribute="trailing" id="rNH-Ja-h5P"/>
-                            <constraint firstItem="0qg-6g-xnJ" firstAttribute="top" secondItem="1im-la-KXX" secondAttribute="bottom" id="ue3-J7-1xm"/>
+                            <constraint firstItem="0qg-6g-xnJ" firstAttribute="top" secondItem="kA8-3a-gTC" secondAttribute="top" id="tO1-Ov-ae1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -168,7 +183,7 @@
                 <customObject id="d40-Ww-Rn5" customClass="RWTableEntitySource" customModule="RWCoreDataViewer" customModuleProvider="target"/>
                 <customObject id="9N9-he-mj9" customClass="RWObjectListingCollectionSource" customModule="RWCoreDataViewer" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="553" y="405"/>
+            <point key="canvasLocation" x="518" y="399"/>
         </scene>
     </scenes>
 </document>
