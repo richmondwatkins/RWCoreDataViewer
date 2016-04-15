@@ -26,7 +26,7 @@ RWCoreDataViewer.initialize(self.managedObjectContext)
 
 ### Core Data Utilities
 
-Serialize your Core Data store to JSON with the ManagedObjectContext Extensions
+Retreive all of your persisted data as a JSON string with the ManagedObjectContext Extension
 
 ```
 self.managedObjectContext.toJSON()
