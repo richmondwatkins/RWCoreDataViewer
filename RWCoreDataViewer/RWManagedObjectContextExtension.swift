@@ -7,7 +7,6 @@
 //
 
 import CoreData
-import RWCoreDataViewer
 
 public extension NSManagedObjectContext {
     

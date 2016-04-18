@@ -38,7 +38,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
 
             if let entity = entities.first {
              
-                 updateCollectionViewWithEntity(entities.first!)
+                 updateCollectionViewWithEntity(entity)
             }
         }
         
