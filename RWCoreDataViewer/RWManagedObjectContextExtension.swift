@@ -7,8 +7,13 @@
 //
 
 import CoreData
+import RWCoreDataViewer
 
 public extension NSManagedObjectContext {
+    
+    public func showDebugView() {
+        RWCoreDataViewer.initialize(self)
+    }
     
     public func toJSON() -> String? {
         let entities: [String: NSEntityDescription] = self.persistentStoreCoordinator!.managedObjectModel.entitiesByName

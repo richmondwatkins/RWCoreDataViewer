@@ -18,10 +18,10 @@ class EntityTwo: NSManagedObject, RWCoreDataInspector {
 }
 ```
 
-To display your data just paste in:
+To display the data debug viewer:
 
 ```
-RWCoreDataViewer.initialize(self.managedObjectContext)
+managedObjectContext.showDebugView()
 ``` 
 
 ### Core Data Utilities
@@ -29,5 +29,5 @@ RWCoreDataViewer.initialize(self.managedObjectContext)
 Retrieve all of your persisted data as a JSON string with the ManagedObjectContext Extension
 
 ```
-self.managedObjectContext.toJSON()
+managedObjectContext.toJSON()
 ```
