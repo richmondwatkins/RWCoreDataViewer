@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.authors      = "Richmond Watkins"
   s.summary      = "Simple, in app, core data viewer"
   s.homepage      = "www.richmondwatkins.com"
+  s.license = { :type => 'MIT', :file => 'LICENSE' }
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -19,7 +20,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :path => "https://github.com/richmondwatkins/RWCoreDataViewer", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/richmondwatkins/RWCoreDataViewer", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
