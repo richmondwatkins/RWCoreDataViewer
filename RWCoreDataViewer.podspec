@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.9"
   s.authors      = "Richmond Watkins"
   s.summary      = "Simple, in app, core data viewer"
-  s.homepage      = "www.richmondwatkins.com"
+  s.homepage      = "http://www.richmondwatkins.com"
   s.license = { :type => 'MIT', :file => 'LICENSE' }
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -20,9 +20,10 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/richmondwatkins/RWCoreDataViewer", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/richmondwatkins/RWCoreDataViewer.git", :tag => "#{s.version}" }
 
 
+ s.ios.deployment_target = '8.0'
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
