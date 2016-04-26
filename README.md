@@ -1,13 +1,13 @@
 # RWCoreDataViewer
 
-RWCoreDataViewer is the simplest way to view your app's persisted Core Data store objects. RWCoreDataViewer presents a custom data viewer that lets you view all of your tables and the records that lie within.
+RWCoreDataViewer is the simplest way to view your app's persisted Core Data store objects. RWCoreDataViewer presents a custom data viewer that lets you view all of your tables and their records.
 
 ### Installation
-Add ``` pod 'RWCoreDataViewer' ``` to you Podfile
+Add ``` pod 'RWCoreDataViewer' ``` to your Podfile
 
 ### Use
 
-To display the debug viewer include the following in you AppDelegate:
+To initialize the debug viewer include the following in you AppDelegate:
 
 ```
 managedObjectContext.initDebugView()
