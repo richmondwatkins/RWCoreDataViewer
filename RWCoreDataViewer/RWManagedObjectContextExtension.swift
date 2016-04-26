@@ -10,7 +10,7 @@ import CoreData
 
 public extension NSManagedObjectContext {
     
-    public func showDebugView() {
+    public func initDebugView() {
         RWCoreDataViewer.initialize(self)
     }
     
