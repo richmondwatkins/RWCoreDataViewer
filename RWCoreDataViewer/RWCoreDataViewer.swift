@@ -9,12 +9,46 @@
 import UIKit
 import CoreData
 
-public protocol RWCoreDataInspector {
-    func propertyNames(classToInspect: AnyObject.Type) -> [String]
-}
+public class RWCoreDataViewer: NSObject {
+    
+    static let sharedViewer: RWCoreDataViewer = RWCoreDataViewer()
+    var amaEntities: [RWCoreDataEntity] = []
 
-public extension RWCoreDataInspector {
-    func propertyNames(classToInspect: AnyObject.Type) -> [String] {
+    public static func initialize(moc: NSManagedObjectContext) {
+        
+        var amaEntities: [RWCoreDataEntity] = []
+        
+        for (name, description) in moc.persistentStoreCoordinator!.managedObjectModel.entitiesByName {
+            
+            if let classer = NSClassFromString(description.managedObjectClassName) as? NSManagedObject.Type {
+                
+                amaEntities.append(RWCoreDataEntity(entityName: name, properties: propertyNames(classer), moc: moc))
+            }
+        }
+        
+        showDebugView(amaEntities)
+    }
+    
+    private static func showDebugView(amaEntities: [RWCoreDataEntity]) {
+        
+        RWCoreDataViewer.sharedViewer.amaEntities = amaEntities
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
+        tapGesture.numberOfTapsRequired = 3
+        
+        UIApplication.sharedApplication().delegate?.window!?.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private static func displayViewer() {
+    
+        let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: NSBundle(forClass: RWCoreDataViewer.self)).instantiateViewControllerWithIdentifier(String(CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
+        
+        displayVC.setEntities(RWCoreDataViewer.sharedViewer.amaEntities)
+        
+        UIApplication.sharedApplication().delegate!.window!!.rootViewController!.presentViewController(displayVC, animated: true, completion: nil)
+    }
+    
+    private static func propertyNames(classToInspect: AnyObject.Type) -> [String] {
         
         var count : UInt32 = 0
         let properties : UnsafeMutablePointer <objc_property_t> = class_copyPropertyList(classToInspect, &count)
@@ -27,41 +61,9 @@ public extension RWCoreDataInspector {
             
             propertyNames.append(propertyName as String)
         }
-    
+        
         free(properties)
         
         return propertyNames
-    }
-}
-
-public class RWCoreDataViewer: NSObject {
-
-    public static func initialize(moc: NSManagedObjectContext) {
-        
-        var amaEntities: [RWCoreDataEntity] = []
-        
-        for (name, description) in moc.persistentStoreCoordinator!.managedObjectModel.entitiesByName {
-            
-            if let classer = NSClassFromString(description.managedObjectClassName) as? NSManagedObject.Type {
-                
-                if let protoClass = classer.init(entity: description, insertIntoManagedObjectContext: moc) as? RWCoreDataInspector {
-      
-                    amaEntities.append(RWCoreDataEntity(entityName: name, properties: protoClass.propertyNames(classer), moc: moc))
-                }
-            }
-        }
-        
-        showDebugView(amaEntities)
-    }
-    
-    private static func showDebugView(amaEntities: [RWCoreDataEntity]) {
-     
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-            let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: NSBundle(forClass: RWCoreDataViewer.self)).instantiateViewControllerWithIdentifier(String(CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
-            
-            displayVC.setEntities(amaEntities)
-            
-            UIApplication.sharedApplication().delegate!.window!!.rootViewController!.presentViewController(displayVC, animated: true, completion: nil)
-        }
     }
 }
