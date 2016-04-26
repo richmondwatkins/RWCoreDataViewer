@@ -70,7 +70,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
     }
     
     @IBAction func closeVC(sender: UIButton) {
-        
+        RWCoreDataViewer.addWindowGestureRec()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

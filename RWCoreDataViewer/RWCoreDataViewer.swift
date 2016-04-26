@@ -13,7 +13,8 @@ public class RWCoreDataViewer: NSObject {
     
     static let sharedViewer: RWCoreDataViewer = RWCoreDataViewer()
     var amaEntities: [RWCoreDataEntity] = []
-
+    var tapGesture: UITapGestureRecognizer!
+    
     public static func initialize(moc: NSManagedObjectContext) {
         
         var amaEntities: [RWCoreDataEntity] = []
@@ -33,10 +34,14 @@ public class RWCoreDataViewer: NSObject {
         
         RWCoreDataViewer.sharedViewer.amaEntities = amaEntities
         
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
-        tapGesture.numberOfTapsRequired = 3
-        
-        UIApplication.sharedApplication().delegate?.window!?.addGestureRecognizer(tapGesture)
+        addWindowGestureRec()
+    }
+    
+    internal static func addWindowGestureRec() {
+        RWCoreDataViewer.sharedViewer.tapGesture = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
+        RWCoreDataViewer.sharedViewer.tapGesture.numberOfTapsRequired = 1
+
+        UIApplication.sharedApplication().delegate?.window!?.addGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
     }
     
     @objc private static func displayViewer() {
@@ -45,6 +50,8 @@ public class RWCoreDataViewer: NSObject {
         
         displayVC.setEntities(RWCoreDataViewer.sharedViewer.amaEntities)
         
+        
+        UIApplication.sharedApplication().delegate?.window!?.removeGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
         UIApplication.sharedApplication().delegate!.window!!.rootViewController!.presentViewController(displayVC, animated: true, completion: nil)
     }
     
