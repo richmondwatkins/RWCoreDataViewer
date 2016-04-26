@@ -13,7 +13,7 @@ To display the debug viewer include the following in you AppDelegate:
 managedObjectContext.initDebugView()
 ``` 
 
-When you want to display the viewer just tripple tap anywhere on the screen.
+When you want to display the viewer just triple tap anywhere on the screen.
 
 #### Other Core Data Utilities
 
