@@ -13,9 +13,9 @@ class RWObjectCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var objectValueLabel: UILabel!
     
-    func configure(managedObject: NSManagedObject, propertyName: String) {
+    func configure(_ managedObject: NSManagedObject, propertyName: String) {
                 
-        if let value = managedObject.valueForKey(propertyName) {
+        if let value = managedObject.value(forKey: propertyName) {
             self.objectValueLabel.text = "\(value)"
         }
     }

@@ -12,7 +12,7 @@ class RWPropertyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var propertyNameLabel: UILabel!
     
-    func configure(property: RWProperty) {
+    func configure(_ property: RWProperty) {
         
         self.propertyNameLabel.text = property.name
     }

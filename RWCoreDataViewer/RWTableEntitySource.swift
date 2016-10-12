@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RWTableEntitySourceDelegate {
-    func didSelectEntitiy(entity: RWCoreDataEntity, atIndexPath indexPath: NSIndexPath)
+    func didSelectEntitiy(_ entity: RWCoreDataEntity, atIndexPath indexPath: IndexPath)
 }
 
 class RWTableEntitySource: NSObject, UITableViewDelegate, UITableViewDataSource {
@@ -17,20 +17,20 @@ class RWTableEntitySource: NSObject, UITableViewDelegate, UITableViewDataSource 
     var entities: [RWCoreDataEntity] = []
     var delegate: RWTableEntitySourceDelegate?
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entities.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: RWEntityTableViewCell = tableView.dequeueReusableCellWithIdentifier(String(RWEntityTableViewCell.self)) as! RWEntityTableViewCell
+        let cell: RWEntityTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: RWEntityTableViewCell.self)) as! RWEntityTableViewCell
         
-        cell.configure(entities[indexPath.row])
+        cell.configure(entities[(indexPath as NSIndexPath).row])
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.didSelectEntitiy(self.entities[indexPath.row], atIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectEntitiy(self.entities[(indexPath as NSIndexPath).row], atIndexPath: indexPath)
     }
 }

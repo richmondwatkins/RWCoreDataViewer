@@ -13,7 +13,7 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
     
     var entity: RWCoreDataEntity?
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let entity = self.entity {
             
@@ -23,7 +23,7 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
         return 0
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         if let entity = self.entity {
             
@@ -33,33 +33,33 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 0 {
-            let cell: RWPropertyCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(String(RWPropertyCollectionViewCell.self), forIndexPath: indexPath) as! RWPropertyCollectionViewCell
+        if (indexPath as NSIndexPath).section == 0 {
+            let cell: RWPropertyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RWPropertyCollectionViewCell.self), for: indexPath) as! RWPropertyCollectionViewCell
             
-            cell.configure(self.entity!.properties[indexPath.row])
+            cell.configure(self.entity!.properties[(indexPath as NSIndexPath).row])
             
             return cell
         } else {
          
-            let cell: RWObjectCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(String(RWObjectCollectionViewCell.self), forIndexPath: indexPath) as! RWObjectCollectionViewCell
+            let cell: RWObjectCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RWObjectCollectionViewCell.self), for: indexPath) as! RWObjectCollectionViewCell
             
-            if let record: NSManagedObject = self.entity!.fetchResults[indexPath.section] as? NSManagedObject {
+            if let record: NSManagedObject = self.entity!.fetchResults[(indexPath as NSIndexPath).section] as? NSManagedObject {
                 
-                cell.configure(record, propertyName: self.entity!.properties[indexPath.row].name)
+                cell.configure(record, propertyName: self.entity!.properties[(indexPath as NSIndexPath).row].name)
             }
             
             return cell
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-         return self.entity!.properties[indexPath.row].size
+         return self.entity!.properties[(indexPath as NSIndexPath).row].size
     }
 }

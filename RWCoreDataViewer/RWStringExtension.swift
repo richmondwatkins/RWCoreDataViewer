@@ -9,16 +9,16 @@
 import UIKit
 
 extension String {
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: CGFloat.max)
+    func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = self.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
     }
     
-    func widthConstrainedToHeigth(height: CGFloat, font: UIFont) -> CGFloat {
+    func widthConstrainedToHeigth(_ height: CGFloat, font: UIFont) -> CGFloat {
         let fontAttributes = [NSFontAttributeName: font]
-        return (self as NSString).sizeWithAttributes(fontAttributes).width
+        return (self as NSString).size(attributes: fontAttributes).width
     }
 }

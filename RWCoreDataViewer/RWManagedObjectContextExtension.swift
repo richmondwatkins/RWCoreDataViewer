@@ -19,19 +19,19 @@ public extension NSManagedObjectContext {
         let userDictionary: NSMutableDictionary = NSMutableDictionary()
         let entityDictionary: NSMutableDictionary = NSMutableDictionary()
         
-        userDictionary.setObject(entityDictionary, forKey: "Entities")
+        userDictionary.setObject(entityDictionary, forKey: "Entities" as NSCopying)
         
         // Loop through and fetch entities
         for (entityName, _) in entities {
             
-            let entityDescription: NSEntityDescription = NSEntityDescription.entityForName(entityName, inManagedObjectContext: self)!
+            let entityDescription: NSEntityDescription = NSEntityDescription.entity(forEntityName: entityName, in: self)!
             
-            let fetchRequest = NSFetchRequest()
+            let fetchRequest = NSFetchRequest<NSManagedObject>()
             
             fetchRequest.entity = entityDescription
             
             do {
-                let results: NSArray = try self.persistentStoreCoordinator!.executeRequest(fetchRequest, withContext: self) as! NSArray
+                let results: NSArray = try self.persistentStoreCoordinator!.execute(fetchRequest, with: self) as! NSArray
                 
                 let resultsMutArray: NSMutableArray = NSMutableArray()
                 
@@ -42,19 +42,19 @@ public extension NSManagedObjectContext {
                     let attrDictionary: NSMutableDictionary = NSMutableDictionary()
                     
                     let entity: NSEntityDescription = result.entity
-                    let attributes: NSDictionary = entity.attributesByName
+                    let attributes: NSDictionary = entity.attributesByName as NSDictionary
                     
                     for (attr, _) in attributes as! [String: NSAttributeDescription] {
                         
-                        attrDictionary.setObject("\(result.valueForKey(attr))", forKey: attr)
+                        attrDictionary.setObject("\(result.value(forKey: attr))", forKey: attr as NSCopying)
                     }
                     
-                    resultsMutArray.addObject(attrDictionary)
+                    resultsMutArray.add(attrDictionary)
                 }
                 
                 // adds array from above to a dictionary that holds all of the values for the entity
                 // that is currently being looped through
-                entityDictionary.setObject(resultsMutArray, forKey: entityName)
+                entityDictionary.setObject(resultsMutArray, forKey: entityName as NSCopying)
                 
             } catch {
                 return nil
@@ -63,12 +63,12 @@ public extension NSManagedObjectContext {
         
         do {
             
-            let theJSONData = try NSJSONSerialization.dataWithJSONObject(
-                userDictionary,
-                options: NSJSONWritingOptions(rawValue: 0))
+            let theJSONData = try JSONSerialization.data(
+                withJSONObject: userDictionary,
+                options: JSONSerialization.WritingOptions(rawValue: 0))
             
             return NSString(data: theJSONData,
-                                       encoding: NSASCIIStringEncoding) as? String
+                                       encoding: String.Encoding.ascii.rawValue) as? String
             
         } catch {
             

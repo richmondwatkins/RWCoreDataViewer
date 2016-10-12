@@ -15,6 +15,6 @@ class RWProperty {
     
     init(name: String) {
         self.name = name
-        self.size = CGSize(width: name.widthConstrainedToHeigth(40, font: UIFont.systemFontOfSize(16)) + 16, height: 40)
+        self.size = CGSize(width: name.widthConstrainedToHeigth(40, font: UIFont.systemFont(ofSize: 16)) + 16, height: 40)
     }
 }

@@ -21,8 +21,8 @@ class RWCoreDataEntity {
             return RWProperty(name: propertyString)
         })
         
-        let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: entityName)
+        let fetchRequest: NSFetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         
-        self.fetchResults = try! moc.executeFetchRequest(fetchRequest)
+        self.fetchResults = try! moc.fetch(fetchRequest) as NSArray
     }
 }

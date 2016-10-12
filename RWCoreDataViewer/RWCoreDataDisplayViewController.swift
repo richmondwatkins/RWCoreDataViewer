@@ -18,7 +18,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
     @IBOutlet var tableSouce: RWTableEntitySource!
     var entities: [RWCoreDataEntity]?
     
-    func setEntities(entities: [RWCoreDataEntity]) {
+    func setEntities(_ entities: [RWCoreDataEntity]) {
         self.entities = entities
     }
     
@@ -34,7 +34,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
             
             self.tableView.reloadData()
             
-            self.tableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0),animated: false, scrollPosition: .None)
+            self.tableView.selectRow(at: IndexPath(item: 0, section: 0),animated: false, scrollPosition: .none)
 
             if let entity = entities.first {
              
@@ -47,7 +47,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
         flowlayout.minimumInteritemSpacing = 2
     }
     
-    func updateCollectionViewWithEntity(entity: RWCoreDataEntity) {
+    func updateCollectionViewWithEntity(_ entity: RWCoreDataEntity) {
         
         let neededWidth: CGFloat = entity.properties.reduce(0) { (amount, property) -> CGFloat in
             return property.size.width + amount + 16
@@ -59,7 +59,7 @@ class CDDCoreDataDisplayViewController: UIViewController {
             
             self.scrollView.contentSize = CGSize(width: neededWidth, height: self.objectCollectionView.contentSize.height)
             
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.objectCollectionView.layoutIfNeeded()
             })
         }
@@ -69,15 +69,15 @@ class CDDCoreDataDisplayViewController: UIViewController {
         
     }
     
-    @IBAction func closeVC(sender: UIButton) {
+    @IBAction func closeVC(_ sender: UIButton) {
         RWCoreDataViewer.addWindowGestureRec()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CDDCoreDataDisplayViewController: RWTableEntitySourceDelegate {
     
-    func didSelectEntitiy(entity: RWCoreDataEntity, atIndexPath indexPath: NSIndexPath) {
+    func didSelectEntitiy(_ entity: RWCoreDataEntity, atIndexPath indexPath: IndexPath) {
         updateCollectionViewWithEntity(entity)
     }
 }

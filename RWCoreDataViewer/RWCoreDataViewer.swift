@@ -9,13 +9,13 @@
 import UIKit
 import CoreData
 
-public class RWCoreDataViewer: NSObject {
+open class RWCoreDataViewer: NSObject {
     
     static let sharedViewer: RWCoreDataViewer = RWCoreDataViewer()
     var amaEntities: [RWCoreDataEntity] = []
     var tapGesture: UITapGestureRecognizer!
     
-    public static func initialize(moc: NSManagedObjectContext) {
+    open static func initialize(_ moc: NSManagedObjectContext) {
         
         var amaEntities: [RWCoreDataEntity] = []
         
@@ -30,7 +30,7 @@ public class RWCoreDataViewer: NSObject {
         showDebugView(amaEntities)
     }
     
-    private static func showDebugView(amaEntities: [RWCoreDataEntity]) {
+    fileprivate static func showDebugView(_ amaEntities: [RWCoreDataEntity]) {
         
         RWCoreDataViewer.sharedViewer.amaEntities = amaEntities
         
@@ -41,30 +41,30 @@ public class RWCoreDataViewer: NSObject {
         RWCoreDataViewer.sharedViewer.tapGesture = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
         RWCoreDataViewer.sharedViewer.tapGesture.numberOfTapsRequired = 1
 
-        UIApplication.sharedApplication().delegate?.window!?.addGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
+        UIApplication.shared.delegate?.window!?.addGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
     }
     
-    @objc private static func displayViewer() {
+    @objc fileprivate static func displayViewer() {
     
-        let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: NSBundle(forClass: RWCoreDataViewer.self)).instantiateViewControllerWithIdentifier(String(CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
+        let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: Bundle(for: RWCoreDataViewer.self)).instantiateViewController(withIdentifier: String(describing: CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
         
         displayVC.setEntities(RWCoreDataViewer.sharedViewer.amaEntities)
         
         
-        UIApplication.sharedApplication().delegate?.window!?.removeGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
-        UIApplication.sharedApplication().delegate!.window!!.rootViewController!.presentViewController(displayVC, animated: true, completion: nil)
+        UIApplication.shared.delegate?.window!?.removeGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
+        UIApplication.shared.delegate!.window!!.rootViewController!.present(displayVC, animated: true, completion: nil)
     }
     
-    private static func propertyNames(classToInspect: AnyObject.Type) -> [String] {
+    fileprivate static func propertyNames(_ classToInspect: AnyObject.Type) -> [String] {
         
         var count : UInt32 = 0
-        let properties : UnsafeMutablePointer <objc_property_t> = class_copyPropertyList(classToInspect, &count)
+        let properties : UnsafeMutablePointer <objc_property_t?>! = class_copyPropertyList(classToInspect, &count)
         var propertyNames : [String] = []
         let intCount = Int(count)
         
         for i in 0..<intCount {
-            let property: objc_property_t = properties[i]
-            let propertyName = NSString(UTF8String: property_getName(property))!
+            let property: objc_property_t = properties[i]!
+            let propertyName = NSString(utf8String: property_getName(property))!
             
             propertyNames.append(propertyName as String)
         }
