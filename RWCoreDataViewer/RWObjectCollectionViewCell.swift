@@ -19,4 +19,10 @@ class RWObjectCollectionViewCell: UICollectionViewCell {
             self.objectValueLabel.text = "\(value)"
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        objectValueLabel.text = ""
+    }
+
 }

@@ -11,7 +11,7 @@ import UIKit
 class RWPropertyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var propertyNameLabel: UILabel!
-    
+   
     func configure(_ property: RWProperty) {
         
         self.propertyNameLabel.text = property.name

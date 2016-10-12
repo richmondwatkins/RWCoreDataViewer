@@ -13,7 +13,11 @@ open class RWCoreDataViewer: NSObject {
     
     static let sharedViewer: RWCoreDataViewer = RWCoreDataViewer()
     var amaEntities: [RWCoreDataEntity] = []
-    var tapGesture: UITapGestureRecognizer!
+    var tapGesture: UITapGestureRecognizer! {
+        didSet {
+            tapGesture.delegate = self
+        }
+    }
     
     open static func initialize(_ moc: NSManagedObjectContext) {
         
@@ -39,8 +43,9 @@ open class RWCoreDataViewer: NSObject {
     
     internal static func addWindowGestureRec() {
         RWCoreDataViewer.sharedViewer.tapGesture = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
-        RWCoreDataViewer.sharedViewer.tapGesture.numberOfTapsRequired = 1
+        RWCoreDataViewer.sharedViewer.tapGesture.numberOfTapsRequired = 3
 
+        print( UIApplication.shared.delegate?.window!)
         UIApplication.shared.delegate?.window!?.addGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
     }
     
@@ -52,7 +57,7 @@ open class RWCoreDataViewer: NSObject {
         
         
         UIApplication.shared.delegate?.window!?.removeGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
-        UIApplication.shared.delegate!.window!!.rootViewController!.present(displayVC, animated: true, completion: nil)
+        UIApplication.shared.delegate!.window!!.rootViewController!.presentViewControllerFromVisibleViewController(viewControllerToPresent: displayVC, animated: true, completion: nil)
     }
     
     fileprivate static func propertyNames(_ classToInspect: AnyObject.Type) -> [String] {
@@ -72,5 +77,26 @@ open class RWCoreDataViewer: NSObject {
         free(properties)
         
         return propertyNames
+    }
+}
+
+extension RWCoreDataViewer: UIGestureRecognizerDelegate {
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+
+extension UIViewController {
+    func presentViewControllerFromVisibleViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        if let navigationController = self as? UINavigationController {
+            navigationController.topViewController?.presentViewControllerFromVisibleViewController(viewControllerToPresent: viewControllerToPresent, animated: flag, completion: completion)
+        } else if let tabBarController = self as? UITabBarController {
+            tabBarController.selectedViewController?.presentViewControllerFromVisibleViewController(viewControllerToPresent: viewControllerToPresent, animated: flag, completion: completion)
+        } else if let presentedViewController = presentedViewController {
+            presentedViewController.presentViewControllerFromVisibleViewController(viewControllerToPresent: viewControllerToPresent, animated: flag, completion: completion)
+        } else {
+            present(viewControllerToPresent, animated: flag, completion: completion)
+        }
     }
 }
