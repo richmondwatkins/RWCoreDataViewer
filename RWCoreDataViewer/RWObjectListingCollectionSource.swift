@@ -26,8 +26,8 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         if let entity = self.entity {
-            
-            return entity.fetchResults.count
+            // to handle header
+            return entity.fetchResults.count + 1
         }
         
         return 1
@@ -45,7 +45,8 @@ class RWObjectListingCollectionSource: NSObject, UICollectionViewDataSource, UIC
          
             let cell: RWObjectCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RWObjectCollectionViewCell.self), for: indexPath) as! RWObjectCollectionViewCell
             
-            if let record: NSManagedObject = self.entity!.fetchResults[(indexPath as NSIndexPath).section] as? NSManagedObject {
+            // subtract one because we added one for the header row
+            if let record: NSManagedObject = self.entity!.fetchResults[(indexPath as NSIndexPath).section - 1] as? NSManagedObject {
                 
                 cell.configure(record, propertyName: self.entity!.properties[(indexPath as NSIndexPath).row].name)
             }
