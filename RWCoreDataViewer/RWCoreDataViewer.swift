@@ -18,8 +18,15 @@ open class RWCoreDataViewer: NSObject {
             tapGesture.delegate = self
         }
     }
+    static var moc: NSManagedObjectContext?
     
     open static func initialize(_ moc: NSManagedObjectContext) {
+        self.moc = moc
+        addWindowGestureRec()
+    }
+    
+    static func updateContents() {
+        guard let moc = self.moc else { return }
         
         var amaEntities: [RWCoreDataEntity] = []
         
@@ -31,26 +38,20 @@ open class RWCoreDataViewer: NSObject {
             }
         }
         
-        showDebugView(amaEntities)
-    }
-    
-    fileprivate static func showDebugView(_ amaEntities: [RWCoreDataEntity]) {
-        
         RWCoreDataViewer.sharedViewer.amaEntities = amaEntities
-        
-        addWindowGestureRec()
     }
-    
+
     internal static func addWindowGestureRec() {
         RWCoreDataViewer.sharedViewer.tapGesture = UITapGestureRecognizer(target: self, action: #selector(displayViewer))
         RWCoreDataViewer.sharedViewer.tapGesture.numberOfTapsRequired = 3
 
-        print( UIApplication.shared.delegate?.window!)
         UIApplication.shared.delegate?.window!?.addGestureRecognizer(RWCoreDataViewer.sharedViewer.tapGesture)
     }
     
     @objc fileprivate static func displayViewer() {
     
+        updateContents()
+        
         let displayVC: CDDCoreDataDisplayViewController = UIStoryboard(name: "RWCoreDataStoryboard", bundle: Bundle(for: RWCoreDataViewer.self)).instantiateViewController(withIdentifier: String(describing: CDDCoreDataDisplayViewController.self)) as! CDDCoreDataDisplayViewController
         
         displayVC.setEntities(RWCoreDataViewer.sharedViewer.amaEntities)
